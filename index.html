@@ -4,58 +4,28 @@
     <meta charset="UTF-8">
     <title>Portal Analítico – Qlik Cloud</title>
 
-	<script 
-	  async 
-	  src="https://l676lvg3emfvcq2.us.qlikcloud.com/resources/assets/external/qlik-embed.js"
-	  data-host="https://l676lvg3emfvcq2.us.qlikcloud.com"
-	  data-web-integration-id="deldUOnOAI1lAtiqRYAfZbG0_OkzkJHs"
-	></script>
-	
+    <script 
+      async 
+      src="https://l676lvg3emfvcq2.us.qlikcloud.com/resources/assets/external/qlik-embed.js"
+      data-host="https://l676lvg3emfvcq2.us.qlikcloud.com"
+      data-web-integration-id="deldUOnOAI1lAtiqRYAfZbG0_OkzkJHs"
+    ></script>
+    
     <style>
-        body{
-            font-family: Arial, sans-serif;
-            margin:0;
-            background:#f5f6fa;
-        }
+        body{ font-family: Arial, sans-serif; margin:0; background:#f5f6fa; }
+        header{ background:#0a7d5c; color:white; padding:20px; text-align:center; }
+        .grid{ display:grid; grid-template-columns: 1fr 1fr; gap:20px; padding:20px; }
+        .card{ background:white; border-radius:10px; padding:15px; box-shadow:0 2px 8px rgba(0,0,0,0.1); }
+        h3{ margin:10px 0; }
+        footer{ text-align:center; padding:10px; color:#666; }
 
-        header{
-            background:#0a7d5c;
-            color:white;
-            padding:20px;
-            text-align:center;
-        }
-
-        .grid{
-            display:grid;
-            grid-template-columns: 1fr 1fr;
-            gap:20px;
-            padding:20px;
-        }
-
-        .card{
-            background:white;
-            border-radius:10px;
-            padding:10px;
-            box-shadow:0 2px 8px rgba(0,0,0,0.1);
-        }
-
-        iframe{
-            width:100%;
-            height:420px;
-            border:none;
-        }
-
-        h3{
-            margin:10px 0;
-        }
-
-        footer{
-            text-align:center;
-            padding:10px;
-            color:#666;
+        /* IMPORTANTE: Darle altura a los gráficos */
+        qlik-embed {
+            width: 100%;
+            height: 400px;
+            display: block;
         }
     </style>
-
 </head>
 
 <body>
@@ -66,28 +36,25 @@
 </header>
 
 <div class="grid">
-
     <div class="card">
         <h3>📈 KPI Ventas y Beneficio</h3>
-		<qlik-embed ui="analytics/chart" app-id="1e4d2ed8-9b9a-4785-b5c2-cb6f647703eb" object-id="LSPRdu" theme="Sense Horizonte" iframe="true" preview="true">
+        <qlik-embed ui="analytics/chart" app-id="1e4d2ed8-9b9a-4785-b5c2-cb6f647703eb" object-id="LSPRdu" theme="horizon" iframe="true"></qlik-embed>
     </div>
 
     <div class="card">
-		<h3>⚠️ Riesgo de Devolución (Modelo ML)</h3>
-		<qlik-embed ui="analytics/chart" app-id="1e4d2ed8-9b9a-4785-b5c2-cb6f647703eb" object-id="LSPRdu" theme="Sense Horizonte" iframe="true" preview="true"></qlik-embed>
-
-	</div>
+        <h3>⚠️ Riesgo de Devolución (Modelo ML)</h3>
+        <qlik-embed ui="analytics/chart" app-id="1e4d2ed8-9b9a-4785-b5c2-cb6f647703eb" object-id="LSPRdu" theme="horizon" iframe="true"></qlik-embed>
+    </div>
 
     <div class="card">
         <h3>🎛️ Simulación What-If</h3>
-		<qlik-embed ui="analytics/chart" app-id="1e4d2ed8-9b9a-4785-b5c2-cb6f647703eb" object-id="LSPRdu" theme="Sense Horizonte" iframe="true" preview="true">
+        <qlik-embed ui="analytics/chart" app-id="1e4d2ed8-9b9a-4785-b5c2-cb6f647703eb" object-id="LSPRdu" theme="horizon" iframe="true"></qlik-embed>
     </div>
 
     <div class="card">
         <h3>👥 Segmentación / Clusters</h3>
-		<qlik-embed ui="analytics/chart" app-id="1e4d2ed8-9b9a-4785-b5c2-cb6f647703eb" object-id="LSPRdu" theme="Sense Horizonte" iframe="true" preview="true">
+        <qlik-embed ui="analytics/chart" app-id="1e4d2ed8-9b9a-4785-b5c2-cb6f647703eb" object-id="LSPRdu" theme="horizon" iframe="true"></qlik-embed>
     </div>
-
 </div>
 
 <footer>
