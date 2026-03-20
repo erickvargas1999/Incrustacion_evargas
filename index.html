@@ -14,60 +14,48 @@
     ></script>
     
     <style>
-		body { 
-			font-family: Arial, sans-serif; 
-			margin: 0; 
-			background: #f5f6fa; 
-		}
-		
-		header { 
-			background: #0a7d5c; 
-			color: white; 
-			padding: 20px; 
-			text-align: center; 
-		}
+        body { font-family: Arial, sans-serif; margin: 0; background: #f5f6fa; }
+        header { background: #0a7d5c; color: white; padding: 20px; text-align: center; }
+        
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
 
-		/* El grid que acomoda las 2 columnas sin romperlas */
-		.grid {
-			display: grid;
-			grid-template-columns: 1fr 1fr; /* Mitad y mitad exactas */
-			gap: 20px;
-			padding: 20px;
-			max-width: 1200px; /* Centra el proyecto en pantallas gigantes */
-			margin: 0 auto;
-		}
+        .card {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            display: flex;
+            flex-direction: column;
+            /* El secreto: forzar una altura mínima total para la tarjeta */
+            min-height: 500px; 
+        }
 
-		/* La tarjeta ahora es un bloque sólido */
-		.card {
-			background: white;
-			border-radius: 10px;
-			padding: 20px;
-			box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-			display: block; /* Quitamos el flex para no aplastar el gráfico */
-		}
+        h3 { margin-top: 0; margin-bottom: 15px; font-size: 1.1em; color: #333; }
 
-		h3 {
-			margin-top: 0;
-			margin-bottom: 15px;
-			font-size: 1.1em;
-			color: #333;
-		}
+        /* Contenedor que le dice a Qlik exactamente cuánto espacio tiene */
+        .chart-box {
+            flex: 1; /* Toma todo el espacio disponible debajo del título */
+            width: 100%;
+            min-height: 400px;
+        }
 
-		/* El seguro de vida para que Qlik se dibuje sí o sí */
-		qlik-embed {
-			display: block;
-			width: 100%;
-			height: 400px;       /* Altura principal */
-			min-height: 400px;   /* Doble seguro para evitar el colapso */
-		}
+        qlik-embed {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
 
-		/* Si lo abren en celular, pasa a una sola columna */
-		@media (max-width: 800px) {
-			.grid { 
-				grid-template-columns: 1fr; 
-			}
-		}
-	</style>
+        @media (max-width: 800px) {
+            .grid { grid-template-columns: 1fr; }
+        }
+    </style>
 </head>
 
 <body>
@@ -80,38 +68,30 @@
 <div class="grid">
     <div class="card">
         <h3>📈 Análisis de Rentabilidad</h3>
-        <qlik-embed
-          ui="analytics/chart"
-          app-id="1e4d2ed8-9b9a-4785-b5c2-cb6f647703eb"
-          object-id="LSPRdu">
-        </qlik-embed>
+        <div class="chart-box">
+            <qlik-embed ui="analytics/chart" app-id="1e4d2ed8-9b9a-4785-b5c2-cb6f647703eb" object-id="LSPRdu"></qlik-embed>
+        </div>
     </div>
 	
     <div class="card">
         <h3>📊 Riesgo por Región</h3>
-        <qlik-embed 
-            ui="analytics/chart" 
-            app-id="1e4d2ed8-9b9a-4785-b5c2-cb6f647703eb" 
-            object-id="CkdCTK">
-        </qlik-embed>
+        <div class="chart-box">
+            <qlik-embed ui="analytics/chart" app-id="1e4d2ed8-9b9a-4785-b5c2-cb6f647703eb" object-id="CkdCTK"></qlik-embed>
+        </div>
     </div>
 	
     <div class="card">
         <h3>🎛️ Simulación What-If</h3>
-        <qlik-embed 
-            ui="analytics/chart" 
-            app-id="1e4d2ed8-9b9a-4785-b5c2-cb6f647703eb" 
-            object-id="CkdCTK">
-        </qlik-embed>
+        <div class="chart-box">
+            <qlik-embed ui="analytics/chart" app-id="1e4d2ed8-9b9a-4785-b5c2-cb6f647703eb" object-id="CkdCTK"></qlik-embed>
+        </div>
     </div>
 	
     <div class="card">
         <h3>👥 Segmentación de Clientes</h3>
-        <qlik-embed 
-            ui="analytics/chart" 
-            app-id="1e4d2ed8-9b9a-4785-b5c2-cb6f647703eb" 
-            object-id="CkdCTK">
-        </qlik-embed>
+        <div class="chart-box">
+            <qlik-embed ui="analytics/chart" app-id="1e4d2ed8-9b9a-4785-b5c2-cb6f647703eb" object-id="CkdCTK"></qlik-embed>
+        </div>
     </div>
 </div>
 
