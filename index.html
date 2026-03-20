@@ -5,26 +5,25 @@
     <title>Portal Analítico – Qlik Cloud</title>
 
     <script
-      crossorigin="anonymous"
-      type="application/javascript"
-      src="https://cdn.jsdelivr.net/npm/@qlik/embed-web-components@1/dist/index.min.js"
-      data-host="https://l676lvg3emfvcq2.us.qlikcloud.com"
-      data-web-integration-id="deldUOnOAI1lAtiqRYAfZbG0_OkzkJHs"
+        crossorigin="anonymous"
+        type="application/javascript"
+        src="https://cdn.jsdelivr.net/npm/@qlik/embed-web-components@1/dist/index.min.js"
+        data-host="https://l676lvg3emfvcq2.us.qlikcloud.com"
+        data-web-integration-id="deldUOnOAI1lAtiqRYAfZbG0_OkzkJHs"
+        data-auto-redirect="true" 
     ></script>
     
     <style>
         body{ font-family: Arial, sans-serif; margin:0; background:#f5f6fa; }
         header{ background:#0a7d5c; color:white; padding:20px; text-align:center; }
         .grid{ display:grid; grid-template-columns: 1fr 1fr; gap:20px; padding:20px; }
-        .card{ background:white; border-radius:10px; padding:15px; box-shadow:0 2px 8px rgba(0,0,0,0.1); }
-        h3{ margin:10px 0; }
-        footer{ text-align:center; padding:10px; color:#666; }
-
-        /* Esencial para que el componente se vea */
+        .card{ background:white; border-radius:10px; padding:15px; box-shadow:0 2px 8px rgba(0,0,0,0.1); min-height: 450px; }
+        
+        /* IMPORTANTE: Altura para que el gráfico no desaparezca */
         qlik-embed {
-            width: 100%;
             height: 400px;
             display: block;
+            width: 100%;
         }
     </style>
 </head>
@@ -38,20 +37,27 @@
 
 <div class="grid">
     <div class="card">
-        <h3>📈 KPI Ventas y Beneficio</h3>
+        <h3>📈 Análisis de Ventas y Riesgo</h3>
+        <qlik-embed
+          ui="analytics/chart"
+          app-id="1e4d2ed8-9b9a-4785-b5c2-cb6f647703eb"
+          object-id="LSPRdu"
+        ></qlik-embed>
+    </div>
+	
+	<div class="card">
+        <h3>📈 Análisis de Ventas y Riesgo</h3>
         <qlik-embed 
-            ui="analytics/chart" 
-            app-id="1e4d2ed8-9b9a-4785-b5c2-cb6f647703eb" 
-            object-id="LSPRdu" 
-            theme="horizon">
-        </qlik-embed>
+		ui="analytics/chart" 
+		app-id="1e4d2ed8-9b9a-4785-b5c2-cb6f647703eb" 
+		object-id="CkdCTK" 
+		theme="Sense Classic" 
+		iframe="true" 
+		preview="true">
+		</qlik-embed>
     </div>
 
     </div>
-
-<footer>
-    Integración mediante qlik-embed (Web Components)
-</footer>
 
 </body>
 </html>
