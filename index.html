@@ -14,17 +14,68 @@
     ></script>
     
     <style>
-        body{ font-family: Arial, sans-serif; margin:0; background:#f5f6fa; }
-        header{ background:#0a7d5c; color:white; padding:20px; text-align:center; }
-        .grid{ display:grid; grid-template-columns: 1fr 1fr; gap:20px; padding:20px; }
-        .card{ background:white; border-radius:10px; padding:15px; box-shadow:0 2px 8px rgba(0,0,0,0.1); min-height: 450px; }
-        
-        qlik-embed {
-            height: 400px;
-            display: block;
-            width: 100%;
-        }
-    </style>
+    /* Estilos generales */
+		body { 
+			font-family: Arial, sans-serif; 
+			margin: 0; 
+			background: #f5f6fa; 
+			color: #333;
+		}
+		
+		header { 
+			background: #0a7d5c; 
+			color: white; 
+			padding: 20px; 
+			text-align: center; 
+		}
+		
+		h1 { margin: 0 0 10px 0; font-size: 2em; }
+		header p { margin: 0; font-size: 1em; opacity: 0.9; }
+
+		/* --- CORRECCIÓN DEL GRID --- */
+		.grid { 
+			display: grid; 
+			/* Usamos 'minmax(0, 1fr)' para forzar a la columna a no desbordar */
+			grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
+			gap: 20px; 
+			padding: 20px; 
+			/* Aseguramos que el grid mismo no cause scroll horizontal */
+			width: 100%;
+			box-sizing: border-box;
+		}
+		
+		@media (max-width: 800px) {
+			.grid { grid-template-columns: 1fr; } /* Una columna en móviles */
+		}
+
+		/* --- CORRECCIÓN DE LA TARJETA --- */
+		.card { 
+			background: white; 
+			border-radius: 10px; 
+			padding: 20px; 
+			box-shadow: 0 2px 8px rgba(0,0,0,0.1); 
+			/* Importante: Forzar a la tarjeta a contener todo */
+			display: flex;
+			flex-direction: column;
+			overflow: hidden; 
+			box-sizing: border-box;
+		}
+		
+		h3 { margin: 0 0 15px 0; font-size: 1.2em; display: flex; align-items: center; gap: 8px; }
+
+		/* --- CORRECCIÓN DEL GRÁFICO QLIK --- */
+		qlik-embed {
+			/* Altura fija para que Qlik sepa cuánto medir */
+			height: 400px; 
+			display: block;
+			/* Forzamos a que Qlik respete el ancho de su padre (.card) */
+			width: 100% !important; 
+			max-width: 100%;
+			/* Evitamos scrollbars fantasma */
+			border: none;
+			overflow: hidden;
+		}
+	</style>
 </head>
 
 <body>
