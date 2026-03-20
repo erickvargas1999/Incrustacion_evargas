@@ -19,7 +19,6 @@
         .grid{ display:grid; grid-template-columns: 1fr 1fr; gap:20px; padding:20px; }
         .card{ background:white; border-radius:10px; padding:15px; box-shadow:0 2px 8px rgba(0,0,0,0.1); min-height: 450px; }
         
-        /* IMPORTANTE: Altura para que el gráfico no desaparezca */
         qlik-embed {
             height: 400px;
             display: block;
@@ -37,24 +36,41 @@
 
 <div class="grid">
     <div class="card">
-        <h3>📈 Análisis de Ventas y Riesgo</h3>
+        <h3>📈 Análisis de Rentabilidad</h3>
         <qlik-embed
           ui="analytics/chart"
           app-id="1e4d2ed8-9b9a-4785-b5c2-cb6f647703eb"
-          object-id="LSPRdu"
-        ></qlik-embed>
+          object-id="LSPRdu">
+        </qlik-embed>
     </div>
 	
-	<div class="card">
-        <h3>📈 Análisis de Ventas y Riesgo</h3>
+    <div class="card">
+        <h3>📊 Riesgo por Región</h3>
         <qlik-embed 
-			ui="analytics/chart" 
-			app-id="1e4d2ed8-9b9a-4785-b5c2-cb6f647703eb" 
-			object-id="CkdCTK" 
-		></qlik-embed>
+            ui="analytics/chart" 
+            app-id="1e4d2ed8-9b9a-4785-b5c2-cb6f647703eb" 
+            object-id="CkdCTK">
+        </qlik-embed>
     </div>
-
+	
+    <div class="card">
+        <h3>🎛️ Simulación What-If</h3>
+        <qlik-embed 
+            ui="analytics/chart" 
+            app-id="1e4d2ed8-9b9a-4785-b5c2-cb6f647703eb" 
+            object-id="CkdCTK">
+        </qlik-embed>
     </div>
+	
+    <div class="card">
+        <h3>👥 Segmentación de Clientes</h3>
+        <qlik-embed 
+            ui="analytics/chart" 
+            app-id="1e4d2ed8-9b9a-4785-b5c2-cb6f647703eb" 
+            object-id="CkdCTK">
+        </qlik-embed>
+    </div>
+</div>
 
 </body>
 </html>
