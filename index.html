@@ -14,66 +14,43 @@
     ></script>
     
     <style>
-    /* Estilos generales */
-		body { 
-			font-family: Arial, sans-serif; 
-			margin: 0; 
-			background: #f5f6fa; 
-			color: #333;
-		}
-		
-		header { 
-			background: #0a7d5c; 
-			color: white; 
-			padding: 20px; 
-			text-align: center; 
-		}
-		
-		h1 { margin: 0 0 10px 0; font-size: 2em; }
-		header p { margin: 0; font-size: 1em; opacity: 0.9; }
+		body { font-family: Arial, sans-serif; margin: 0; background: #f5f6fa; }
+		header { background: #0a7d5c; color: white; padding: 20px; text-align: center; }
 
-		/* --- CORRECCIÓN DEL GRID --- */
+		/* Contenedor principal */
 		.grid { 
-			display: grid; 
-			/* Usamos 'minmax(0, 1fr)' para forzar a la columna a no desbordar */
-			grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
+			display: grid;
+			/* Forzamos 2 columnas exactas que se reparten el 50% cada una */
+			grid-template-columns: calc(50% - 10px) calc(50% - 10px); 
 			gap: 20px; 
-			padding: 20px; 
-			/* Aseguramos que el grid mismo no cause scroll horizontal */
-			width: 100%;
-			box-sizing: border-box;
-		}
-		
-		@media (max-width: 800px) {
-			.grid { grid-template-columns: 1fr; } /* Una columna en móviles */
+			padding: 20px;
+			max-width: 1200px; /* Centra el portal para que no sea infinito en pantallas anchas */
+			margin: 0 auto;
 		}
 
-		/* --- CORRECCIÓN DE LA TARJETA --- */
 		.card { 
 			background: white; 
 			border-radius: 10px; 
-			padding: 20px; 
-			box-shadow: 0 2px 8px rgba(0,0,0,0.1); 
-			/* Importante: Forzar a la tarjeta a contener todo */
+			padding: 15px; 
+			box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 			display: flex;
 			flex-direction: column;
-			overflow: hidden; 
-			box-sizing: border-box;
+			overflow: hidden; /* Corta cualquier desborde */
 		}
-		
-		h3 { margin: 0 0 15px 0; font-size: 1.2em; display: flex; align-items: center; gap: 8px; }
 
-		/* --- CORRECCIÓN DEL GRÁFICO QLIK --- */
+		h3 { margin: 0 0 10px 0; font-size: 1.1em; }
+
+		/* Ajuste específico para el componente de Qlik */
 		qlik-embed {
-			/* Altura fija para que Qlik sepa cuánto medir */
-			height: 400px; 
 			display: block;
-			/* Forzamos a que Qlik respete el ancho de su padre (.card) */
-			width: 100% !important; 
-			max-width: 100%;
-			/* Evitamos scrollbars fantasma */
+			width: 100% !important;
+			height: 450px; /* Altura fija para que el gráfico respire */
 			border: none;
-			overflow: hidden;
+		}
+
+		/* En celulares, que se vea una sola columna */
+		@media (max-width: 768px) {
+			.grid { grid-template-columns: 1fr; }
 		}
 	</style>
 </head>
